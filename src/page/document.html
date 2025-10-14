@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>รวมลิงก์ — ชมรมคนรักกีฬา 68</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #1f7aec;
+      --muted: #666
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans Thai', "Helvetica Neue", Arial;
+      margin: 0;
+      background: var(--bg);
+      color: #111
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 20px
+    }
+
+    header {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      flex: 0 0 64px;
+      background: linear-gradient(135deg, #ffd54a, #ffb74d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0
+    }
+
+    p.lead {
+      margin: 6px 0 18px;
+      color: var(--muted)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px
+    }
+
+    .card {
+      background: var(--card);
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 30, 60, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 15px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent
+    }
+
+    a.primary {
+      background: var(--accent);
+      color: white
+    }
+
+    a.ghost {
+      background: transparent;
+      color: var(--accent);
+      border-color: rgba(31, 122, 236, 0.12)
+    }
+
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    @media (max-width:420px) {
+      .wrap {
+        padding: 12px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">68</div>
+      <div>
+        <h1>แบนเนอร์ — ชมรมคนรักกีฬา 68</h1>
+        <p class="lead">รวมลิงก์งานออกแบบและสื่อประชาสัมพันธ์ของชมรม (คลิกเพื่อเปิดใน Canva)</p>
+      </div>
+    </header>
+
+    <main>
+      <div id="content" class="grid"></div>
+
+      <footer>
+        <p>&copy; 2025 ชมรมคนรักกีฬา - All rights reserved by <a href="https://northsnx.github.io/portfolio"
+            target="_blank">northsnx</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const data = {
+      title: "แบนเนอร์ — ชมรมคนรักกีฬา 68",
+      description: "รวมลิงก์งานออกแบบและสื่อประชาสัมพันธ์ของชมรม (คลิกเพื่อเปิดใน Canva)",
+      items: [
+        {
+          name: "รวมการประชุม",
+          description: "สรุปและเอกสารการประชุม (Canva)",
+          url: "https://www.canva.com/design/DAG1FfmzxzQ/0dmYhHuR5pu4LhlSwD0lug/edit?utm_content=DAG1FfmzxzQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        },
+        {
+          name: "เว็บชมรมคนรักกีฬา",
+          description: "เว็บไซตืชมรมคนรักกีฬา (Website)",
+          url: "https://northsnx.github.io/rakkira.spu"
+        },
+        {
+          name: "Google Drive ชมรม",
+          description: "รวมเอกสารชมรม (Google Drive) - ยังไม่มีข้อมูล",
+          url: "#"
+        },
+        {
+          name: "ป้ายชื่อกรรมการ",
+          description: "ป้ายชื่อสำหรับกรรมการ (Canva)",
+          url: "https://www.canva.com/design/DAG1UzFZbCI/kXUKJk9M2A-mQenxvoi3SA/edit?utm_content=DAG1UzFZbCI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        },
+        {
+          name: "ป้ายชื่อลูกค่าย",
+          description: "ป้ายชื่อสำหรับลูกค่าย (Canva)",
+          url: "https://www.canva.com/design/DAG1j_Uh5XQ/yM15QZtjBnhVCtHbSPnRJw/edit?utm_content=DAG1j_Uh5XQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        },
+        {
+          name: "รวมโปสเตอร์",
+          description: "คอลเลกชันโปสเตอร์โปรโมทกิจกรรม (Canva)",
+          url: "https://www.canva.com/design/DAGZ6Z8mleQ/YiIxT_mo-3UwoRLAESCo0Q/edit?utm_content=DAGZ6Z8mleQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        },
+        {
+          name: "เทมเพลตโพสต์เฟซบุ๊ก",
+          description: "เทมเพลตสำหรับโพสต์ Facebook (Canva)",
+          url: "https://www.canva.com/design/DAGwJy5cbGk/A501ZMjIBolV3Up5mnBTDg/edit?utm_content=DAGwJy5cbGk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        },
+        {
+          name: "แนะนำเสื้อชมรม",
+          description: "แบบเสื้อและคำแนะนำการสั่งผลิต (Canva)",
+          url: "https://www.canva.com/design/DAGXINI6Ao8/fxQZUlMiaXY_LLDu_YFKXA/edit?utm_content=DAGXINI6Ao8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+        }
+      ]
+    };
+
+    const content = document.getElementById('content');
+
+    data.items.forEach(item => {
+      const article = document.createElement('article');
+      article.className = 'card';
+      article.innerHTML = `
+        <h3>${item.name}</h3>
+        <p class="small">${item.description}</p>
+        <div class="actions">
+          <a class="btn primary" href="${item.url}" target="_blank" rel="noopener">เปิดลิงก์</a>
+          <a class="btn ghost" href="#" onclick="copyLink(event,'${item.url}')">คัดลอก</a>
+        </div>
+      `;
+      content.appendChild(article);
+    });
+
+    function copyLink(e, txt) {
+      e.preventDefault();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(txt)
+          .then(() => alert('คัดลอกลิงก์แล้ว!'))
+          .catch(() => fallbackCopy(txt));
+      } else {
+        fallbackCopy(txt);
+      }
+    }
+
+    function fallbackCopy(txt) {
+      const tempInput = document.createElement('input');
+      tempInput.value = txt;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        alert('คัดลอกลิงก์แล้ว!');
+      } catch {
+        prompt('คัดลอกลิงก์นี้:', txt);
+      }
+      document.body.removeChild(tempInput);
+    }
+
+  </script>
+</body>
+
+</html>

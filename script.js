@@ -31,39 +31,27 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("404").innerHTML = data;
     })
     .catch((err) => console.error("❌ โหลด 404 ไม่ได้:", err));
+
+  // Swiper JS
+  const swiper = new Swiper('.swiper', {
+    loop: true, // วนไม่รู้จบ
+    slidesPerView: 3, // แสดงทีละ 3 รูป
+    spaceBetween: 10,
+    grabCursor: true, // เปลี่ยนเคอร์เซอร์เป็นมือ
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: { slidesPerView: 4 },
+      1024: { slidesPerView: 5 }
+    }
+  });
 });
 
 
-fetch('data-doc.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('link-container');
-    data.links.forEach(link => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-          <h3>${link.title}</h3>
-          <p class="small">${link.subTitle}</p>
-          <div class="actions">
-            <a class="btn primary" href="${link.url}" target="_blank" rel="noopener">เปิดลิงก์</a>
-            <a class="btn ghost" href="#" onclick="copyLink(event,'${link.url}')">คัดลอก</a>
-          </div>
-      `;
-      container.appendChild(card);
-    });
-  })
-  .catch(error => {
-    console.error('ไม่สามารถโหลดข้อมูลได้:', error);
-  });
 
-// ฟังก์ชันคัดลอกลิงก์
-function copyLink(event, url) {
-  event.preventDefault();
-  navigator.clipboard.writeText(url)
-    .then(() => {
-      alert('คัดลอกลิงก์เรียบร้อย ✅');
-    })
-    .catch(err => {
-      console.error('คัดลอกไม่สำเร็จ:', err);
-    });
-}
