@@ -1,0 +1,193 @@
+/* ======================================== */
+/* ========== Responsive Styles ========== */
+/* ======================================== */
+
+/* ========== For Tablets (<= 768px) ========== */
+@media (max-width: 768px) {
+
+  /* === Layout & Spacing === */
+  .container {
+    padding: 0 20px;
+    /* ปรับ padding ด้านข้างสำหรับ container หลัก */
+  }
+
+  .nav-bar {
+    padding: 0px;
+  }
+
+  /* Logo + Title */
+  .logo-title {
+    gap: 0px;
+  }
+
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Hamburger Button */
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(to bottom, #db2777, #be185d);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo-title h1 a {
+    font-size: 1.2rem;
+  }
+
+
+  .intro-section {
+    padding: 80px 20px;
+    /* ลด padding ส่วน Intro */
+    text-align: center;
+  }
+
+  .intro-grid {
+    flex-direction: column;
+    /* จัดเรียงโลโก้กับข้อความในแนวตั้ง */
+    gap: 30px;
+  }
+
+  .content-section {
+    padding: 25px;
+    /* ลด padding ของส่วนเนื้อหา */
+    margin: 30px auto;
+    /* ลด margin บน-ล่าง */
+  }
+
+  /* === Typography === */
+  .intro-right h1 {
+    font-size: 3em;
+    /* ลดขนาดฟอนต์หัวข้อใหญ่ */
+  }
+
+  .intro-th {
+    font-size: 1.5rem;
+  }
+
+  .intro-en {
+    font-size: 1.2rem;
+  }
+
+  .content-section h2,
+  .team-section h2 {
+    font-size: 1.8rem;
+  }
+
+  /* === Elements & Images === */
+  .intro-logo {
+    height: 200px;
+  }
+
+  .team-card {
+    text-align: center;
+    gap: 15px;
+  }
+
+  .team-card img {
+    width: 120px;
+    /* ปรับขนาดรูปทีมให้พอดี */
+    height: 120px;
+  }
+}
+
+
+/* ========== For Mobile Phones (<= 480px) ========== */
+@media (max-width: 480px) {
+
+  /* === General Typography === */
+  body {
+    font-size: 14px;
+    /* ปรับขนาดฟอนต์พื้นฐานให้เล็กลงอีก */
+  }
+
+  .container {
+    padding: 15px 20px;
+    /* ลด padding ด้านข้างอีกสำหรับจอที่แคบมากๆ */
+  }
+
+  /* === Intro Section === */
+  .intro-section {
+    padding: 60px 15px;
+    /* ลด padding ลงอีก */
+  }
+
+  .intro-logo {
+    height: 150px;
+  }
+
+  .intro-right h1 {
+    font-size: 2.2em;
+    /* ลดขนาดฟอนต์สำหรับมือถือ */
+  }
+
+  .intro-th {
+    font-size: 1.2rem;
+  }
+
+  .intro-en {
+    font-size: 1rem;
+  }
+
+  /* === Content & Sections === */
+  .content-section,
+  .team-section {
+    padding: 20px 25px;
+  }
+
+  .content-section h2,
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-section h3,
+  .team-section h3 {
+    font-size: 1.0rem;
+  }
+
+  /* === Cards === */
+  .card-grid {
+    flex-direction: column;
+    /* บังคับให้ card ทุกใบเรียงเป็นแนวตั้ง */
+
+  }
+
+  .card img {
+    height: auto;
+    max-height: 220px;
+  }
+
+  .team-card img {
+    width: 100px;
+    /* ปรับขนาดรูปทีมให้เล็กลง */
+    height: 100px;
+  }
+
+  /* === Coming Soon Image === */
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* === Buttons === */
+  .click,
+  .lang-btn {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}

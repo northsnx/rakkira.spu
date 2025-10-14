@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>รวมลิงก์ ชมรมคนรักกีฬา 68</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--accent:#1f7aec;--muted:#666}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans Thai',"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#111}
+    .wrap{max-width:900px;margin:28px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center; margin-bottom: 20px;;}
+    .logo{width:64px;height:64px;border-radius:10px;flex:0 0 64px;background:linear-gradient(135deg,#fcadd4,#ff0077);display:flex;align-items:center;justify-content:center;font-weight:700;}
+    h1{font-size:18px;margin:0}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(15,30,60,0.06);display:flex;flex-direction:column;gap:8px}
+    .card h3{margin:0;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .actions{margin-top:12px;display:flex;gap:8px}
+    a.btn{display:inline-block;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid transparent}
+    a.primary{background:var(--accent);color:white}
+    a.ghost{background:transparent;color:var(--accent);border-color:rgba(31,122,236,0.12)}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .small{font-size:12px;color:var(--muted)}
+    @media (max-width:420px){.wrap{padding:12px}}
+  </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <header>
+            <div class="logo">68</div>
+            <div>
+                <h1>แบนเนอร์ - ชมรมคนรักกีฬา 68</h1>
+                <p class="lead">รวมลิงก์งานออกแบบและสื่อประชาสัมพันธ์ของชมรม (คลิกเพื่อเปิดใน Canva)</p>
+            </div>
+        </header>
+        <main>
+            <div class="grid" id="link-container"></div>
+            <!-- ข้อมูลจะถูกโหลดจาก data.json โดย script.js -->
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
