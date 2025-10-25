@@ -1,20 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   // โหลด Header
   fetch("./src/components/header.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("header").innerHTML = data;
 
-      // ✅ toggle menu หลังจาก header โหลดเสร็จ
-      const menuToggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu");
-      if (menuToggle && menu) {
-        menuToggle.addEventListener("click", () => {
-          menu.classList.toggle("active");
-        });
-      }
-    })
-    .catch((err) => console.error("❌ โหลด header ไม่ได้:", err));
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    if (menuToggle && menu) {
+      menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+    }
+  })
+  .catch((err) => console.error("❌ โหลด header ไม่ได้:", err));
+
 
   // โหลด Footer
   fetch("./src/components/footer.html")
@@ -24,13 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("❌ โหลด Footer ไม่ได้:", err));
 
-  // โหลด 404 page
-  fetch("./src/components/404.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("404").innerHTML = data;
-    })
-    .catch((err) => console.error("❌ โหลด 404 ไม่ได้:", err));
 
   // Swiper JS
   const swiper = new Swiper('.swiper', {
