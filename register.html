@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Dashboard - Modern Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #1a202c;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.1rem;
+    }
+
+    /* Search Section */
+    .search-section {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrapper {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 50px 16px 20px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #a0aec0;
+      font-size: 20px;
+    }
+
+    .btn {
+      padding: 16px 28px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #04bb2c 0%, #056902 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+    }
+
+    .btn-secondary {
+      background: #f7fafc;
+      color: #4a5568;
+      border: 2px solid #e2e8f0;
+    }
+
+    .btn-secondary:hover {
+      background: #edf2f7;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .stat-icon.purple {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .stat-icon.green {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      color: white;
+    }
+
+    .stat-icon.orange {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+    }
+
+    .stat-icon.blue {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #718096;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2d3748;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    /* Student Detail View */
+    .student-detail {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .student-detail.active {
+      display: block;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #667eea;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .back-button:hover {
+      background: #f7fafc;
+    }
+
+    .student-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 30px;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .student-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .student-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .student-info h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .student-id {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .info-item {
+      background: rgba(255,255,255,0.15);
+      padding: 15px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-label {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Table View */
+    .table-view {
+      display: block;
+    }
+
+    .table-view.hidden {
+      display: none;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .table-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2d3748;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: #718096;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    table {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead th {
+      background: #f7fafc;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      color: #4a5568;
+      font-size: 14px;
+      border-bottom: 2px solid #e2e8f0;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    tbody td {
+      padding: 15px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+      color: #2d3748;
+      white-space: nowrap;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    tbody td:hover {
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+    tbody tr {
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #667eea;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .link-button:hover {
+      background: #5568d3;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #718096;
+    }
+
+    .spinner {
+      border: 3px solid #f3f4f6;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-input-wrapper {
+        min-width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .student-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      table {
+        display: table;
+        overflow-x: auto;
+      }
+
+      .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #718096;
+    }
+
+    .empty-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    .empty-text {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    #logoutBtn {
+      position: fixed; 
+      top: 20px; 
+      right: 20px; 
+      background: #e53e3e; 
+      color: white; 
+      border: none; 
+      border-radius: 8px; 
+      padding: 10px 18px; 
+      font-weight: 600; 
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>📚 ระบบจัดการข้อมูลนักศึกษา ชมรมคนรักกีฬา ปีที่ 8</h1>
+      <p>ชมรมคนรักกีฬา USR ร่วมคิดสร้างสรรค์แบ่งปันความสุข ปีที่ 8</p>
+    </div>
+
+     <button id="logoutBtn" >🚪 Logout</button>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <input 
+            id="searchInput" 
+            type="text" 
+            class="search-input" 
+            placeholder="ค้นหาด้วยรหัสนักศึกษา, ชื่อ, เบอร์โทร หรือข้อมูลอื่นๆ..."
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+        <button id="refreshBtn" class="btn btn-primary">🔄 รีเฟรช</button>
+        <button id="toggleAutoBtn" class="btn btn-secondary">⏸️ หยุดอัปเดตอัตโนมัติ</button>
+      </div>
+    </div>
+
+    <!-- Statistics Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon purple">👥</div>
+        <div class="stat-label">สมาชิกทั้งหมด</div>
+        <div class="stat-value" id="totalMembers">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">💰</div>
+        <div class="stat-label">สมาชิกชมรม 60 บาท</div>
+        <div class="stat-value" id="clubOnly">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon orange">🏕️</div>
+        <div class="stat-label">สมาชิกไปค่าย (360 + 660 บาท)</div>
+        <div class="stat-value" id="clubWithCamp">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">✅</div>
+        <div class="stat-label">ลงทะเบียนวันนี้</div>
+        <div class="stat-value" id="todayRegistrations">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon orange">📊</div>
+        <div class="stat-label">ผลการค้นหา</div>
+        <div class="stat-value" id="searchResults">0</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Student Detail View (Hidden by default) -->
+      <div id="studentDetail" class="student-detail">
+        <div class="back-button" onclick="backToTable()">
+          ← กลับไปรายการทั้งหมด
+        </div>
+        <div id="studentDetailContent"></div>
+      </div>
+
+      <!-- Table View -->
+      <div id="tableView" class="table-view">
+        <div class="table-header">
+          <h2 class="table-title">รายการสมาชิกทั้งหมด</h2>
+          <div class="last-updated" id="lastUpdated">
+            <span>⏱️</span>
+            <span>กำลังโหลดข้อมูล...</span>
+          </div>
+        </div>
+
+        <div id="tableContent">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>กำลังโหลดข้อมูล...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration - Replace with your Google Sheets CSV URL
+    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTQJ_qOOqzwryhHPH8knL8UOohmYNs72xYuBKqvYVU_jtUSUVh6WMnzeYBO1mogLx6fJPopWsNKEyIF/pub?output=csv";
+    const POLL_INTERVAL_MS = 30000; // 30 seconds
+
+    // Global state
+    let autoRefresh = true;
+    let allData = [];
+    let filteredData = [];
+    let headers = [];
+
+    // DOM Elements
+    const searchInput = document.getElementById('searchInput');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const toggleAutoBtn = document.getElementById('toggleAutoBtn');
+    const tableContent = document.getElementById('tableContent');
+    const lastUpdated = document.getElementById('lastUpdated');
+    const totalMembersEl = document.getElementById('totalMembers');
+    const clubOnlyEl = document.getElementById('clubOnly');
+    const clubWithCampEl = document.getElementById('clubWithCamp');
+    const todayRegistrationsEl = document.getElementById('todayRegistrations');
+    const searchResultsEl = document.getElementById('searchResults');
+    const studentDetail = document.getElementById('studentDetail');
+    const studentDetailContent = document.getElementById('studentDetailContent');
+    const tableView = document.getElementById('tableView');
+
+    // Fetch and parse CSV data
+    async function fetchCsv(url) {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error("ไม่สามารถดึงข้อมูลได้");
+      const text = await response.text();
+      return parseCsv(text);
+    }
+
+    // Parse CSV text into array of objects
+    function parseCsv(csvText) {
+      const lines = csvText.split(/\r?\n/).filter(l => l.trim() !== "");
+      if (lines.length === 0) return { headers: [], rows: [] };
+
+      // Parse a single line (handles quoted values)
+      const parseLine = (line) => {
+        const result = [];
+        let current = "";
+        let inQuotes = false;
+        
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+          if (char === '"') {
+            if (inQuotes && i + 1 < line.length && line[i + 1] === '"') {
+              current += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (char === ',' && !inQuotes) {
+            result.push(current);
+            current = "";
+          } else {
+            current += char;
+          }
+        }
+        result.push(current);
+        return result;
+      };
+
+      const hdrs = parseLine(lines[0]).map(h => h.trim());
+      const dataRows = lines.slice(1).map(line => {
+        const cols = parseLine(line);
+        const obj = {};
+        hdrs.forEach((header, idx) => {
+          obj[header || `col${idx}`] = cols[idx] !== undefined ? cols[idx] : "";
+        });
+        return obj;
+      }).filter(row => Object.values(row).some(v => v !== ""));
+
+      return { headers: hdrs, rows: dataRows };
+    }
+
+    // Render table with data
+    function renderTable(data) {
+      if (data.length === 0) {
+        tableContent.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📭</div>
+            <p class="empty-text">ไม่พบข้อมูล</p>
+          </div>
+        `;
+        return;
+      }
+
+      let tableHtml = '<div class="table-wrapper"><table><thead><tr>';
+      headers.forEach(header => {
+        tableHtml += `<th>${header}</th>`;
+      });
+      tableHtml += '</tr></thead><tbody>';
+
+      data.forEach((row, index) => {
+        tableHtml += `<tr onclick="showStudentDetail(${index})">`;
+        headers.forEach(header => {
+          const value = row[header] || "";
+          // Check if column is a slip/link column
+          if (/สลิป|slip/i.test(header) && isValidUrl(value)) {
+            tableHtml += `<td><a href="${value}" target="_blank" class="link-button" onclick="event.stopPropagation()">ดูสลิป</a></td>`;
+          } else {
+            tableHtml += `<td>${value}</td>`;
+          }
+        });
+        tableHtml += '</tr>';
+      });
+
+      tableHtml += '</tbody></table></div>';
+      tableContent.innerHTML = tableHtml;
+    }
+
+    // Show student detail view
+    function showStudentDetail(index) {
+      const student = filteredData[index];
+      if (!student) return;
+
+      // Get first letter for avatar
+      const firstLetter = (student[headers[4]] || student[headers[5]] || "?")[0].toUpperCase();
+
+      let detailHtml = `
+        <div class="student-card">
+          <div class="student-header">
+            <div class="student-avatar">${firstLetter}</div>
+            <div class="student-info">
+              <h2>${student[headers[0]] || student[headers[1]] || 'ไม่ระบุชื่อ'}</h2>
+              <p class="student-id">${student[headers[1]] || student[headers[0]] || ''}</p>
+            </div>
+          </div>
+          <div class="info-grid">
+      `;
+
+      // Add all fields to info grid
+      headers.forEach(header => {
+        const value = student[header] || "-";
+        if (!/สลิป|slip/i.test(header)) {
+          detailHtml += `
+            <div class="info-item">
+              <div class="info-label">${header}</div>
+              <div class="info-value">${value}</div>
+            </div>
+          `;
+        } else if (isValidUrl(value)) {
+          detailHtml += `
+            <div class="info-item">
+              <div class="info-label">${header}</div>
+              <div class="info-value"><a href="${value}" target="_blank" class="link-button">ดูสลิป</a></div>
+            </div>
+          `;
+        }
+      });
+
+      detailHtml += '</div></div>';
+      studentDetailContent.innerHTML = detailHtml;
+      
+      // Show detail view, hide table
+      studentDetail.classList.add('active');
+      tableView.classList.add('hidden');
+    }
+
+    // Back to table view
+    function backToTable() {
+      studentDetail.classList.remove('active');
+      tableView.classList.remove('hidden');
+    }
+
+    // Check if string is valid URL
+    function isValidUrl(str) {
+      if (!str) return false;
+      try {
+        const url = new URL(str);
+        return url.protocol === "http:" || url.protocol === "https:";
+      } catch {
+        return false;
+      }
+    }
+
+    // Filter data based on search query
+    function filterData(query) {
+      if (!query) return allData;
+      query = query.trim().toLowerCase();
+      return allData.filter(row => {
+        return headers.some(header => {
+          return (row[header] || "").toLowerCase().includes(query);
+        });
+      });
+    }
+
+    // Update statistics
+    function updateStats() {
+      totalMembersEl.textContent = allData.length;
+      searchResultsEl.textContent = filteredData.length;
+      
+      // Find the column name for membership type (ประเภทสมาชิก)
+      const memberTypeColumn = headers.find(h => 
+        h.includes('ประเภทสมาชิก') || h.includes('ประเภท') || h.includes('membership')
+      );
+      
+      // Count "สมาชิกชมรม : 60 บาท"
+      const clubOnlyCount = allData.filter(row => {
+        const value = memberTypeColumn ? (row[memberTypeColumn] || "") : "";
+        return value.includes('สมาชิกชมรม : 60 บาท') || 
+               (value.includes('60') && value.includes('บาท') && !value.includes('360') && !value.includes('660'));
+      }).length;
+      clubOnlyEl.textContent = clubOnlyCount;
+      
+      // Count "สมาชิกชมรม + ไปค่าย (ชำระครึ่ง) : 360 บาท" and "สมาชิกชมรม + ไปค่าย (ชำระเต็ม) : 660 บาท"
+      const clubWithCampCount = allData.filter(row => {
+        const value = memberTypeColumn ? (row[memberTypeColumn] || "") : "";
+        return value.includes('360 บาท') || value.includes('660 บาท') ||
+               value.includes('ไปค่าย') || value.includes('camp');
+      }).length;
+      clubWithCampEl.textContent = clubWithCampCount;
+      
+      // Calculate today's registrations (if timestamp column exists)
+      const today = new Date().toLocaleDateString('th-TH');
+      const todayCount = allData.filter(row => {
+        const timestamp = row['Timestamp'] || row['เวลา'] || "";
+        return timestamp.includes(today);
+      }).length;
+      todayRegistrationsEl.textContent = todayCount;
+    }
+
+    // Load and render data
+    async function loadData() {
+      try {
+        lastUpdated.innerHTML = '<span>⏱️</span><span>กำลังโหลดข้อมูล...</span>';
+        
+        const data = await fetchCsv(SHEET_CSV_URL);
+        headers = data.headers;
+        allData = data.rows;
+        
+        // Apply current search filter
+        const query = searchInput.value;
+        filteredData = filterData(query);
+        
+        renderTable(filteredData);
+        updateStats();
+        
+        const now = new Date();
+        lastUpdated.innerHTML = `<span>✅</span><span>อัปเดตเมื่อ: ${now.toLocaleString('th-TH')}</span>`;
+      } catch (error) {
+        console.error(error);
+        lastUpdated.innerHTML = `<span>❌</span><span>เกิดข้อผิดพลาด: ${error.message}</span>`;
+        tableContent.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">⚠️</div>
+            <p class="empty-text">ไม่สามารถโหลดข้อมูลได้<br><small>กรุณาตรวจสอบ URL และการเชื่อมต่ออินเทอร์เน็ต</small></p>
+          </div>
+        `;
+      }
+    }
+
+    // Event Listeners
+    let searchTimeout;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        const query = searchInput.value;
+        filteredData = filterData(query);
+        renderTable(filteredData);
+        updateStats();
+      }, 300);
+    });
+
+    refreshBtn.addEventListener('click', loadData);
+
+    toggleAutoBtn.addEventListener('click', () => {
+      autoRefresh = !autoRefresh;
+      toggleAutoBtn.innerHTML = autoRefresh 
+        ? '⏸️ หยุดอัปเดตอัตโนมัติ' 
+        : '▶️ เริ่มอัปเดตอัตโนมัติ';
+      toggleAutoBtn.className = autoRefresh ? 'btn btn-secondary' : 'btn btn-primary';
+    });
+
+    // Initialize
+    (async function init() {
+      if (!SHEET_CSV_URL || SHEET_CSV_URL === "SHEET_CSV_URL") {
+        tableContent.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">⚙️</div>
+            <p class="empty-text">กรุณาตั้งค่า SHEET_CSV_URL ในโค้ด<br><small>แก้ไขตัวแปร SHEET_CSV_URL ให้เป็น URL ของ Google Sheets CSV</small></p>
+          </div>
+        `;
+        return;
+      }
+
+      await loadData();
+
+      // Auto refresh interval
+      setInterval(async () => {
+        if (autoRefresh) {
+          await loadData();
+        }
+      }, POLL_INTERVAL_MS);
+    })();
+
+    // Make backToTable function global
+    window.backToTable = backToTable;
+    window.showStudentDetail = showStudentDetail;
+
+     // =============== 🔒 ป้องกันเข้าหน้าโดยตรงถ้าไม่ล็อกอิน ===============
+    const isLoggedIn = localStorage.getItem("loggedIn");
+
+    if (!isLoggedIn || isLoggedIn !== "true") {
+      // ถ้ายังไม่ล็อกอิน จะเด้งกลับหน้า login
+      alert("กรุณาเข้าสู่ระบบก่อนเข้าถึงหน้านี้");
+      window.location.href = "login.html"; // <-- เปลี่ยนชื่อไฟล์ได้ตามหน้า login ของคุณ
+    }
+
+    // =============== 🚪 ปุ่ม Logout ===============
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+      if (confirm("คุณต้องการออกจากระบบหรือไม่?")) {
+        localStorage.removeItem("loggedIn");
+        window.location.href = "login.html"; // กลับไปหน้า login
+      }
+    });
+  </script>
+</body>
+</html>

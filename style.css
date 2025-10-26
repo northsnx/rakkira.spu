@@ -2,7 +2,7 @@
 
 /* ========== CSS Variables ========== */
 :root {
-  /* Colors */
+
   --color-primary: #be185d;
   --color-primary-light: #ec4899;
   --color-primary-dark: #9d174d;
@@ -12,7 +12,9 @@
   --color-pink-lighter: #FBC1CC;
   --color-pink-active: #e31b85;
   --color-pink-bg: #f7d4e6;
-  
+
+
+
   /* Neutrals */
   --color-white: #ffffff;
   --color-black: #000000;
@@ -24,7 +26,7 @@
   --color-text: #222;
   --color-text-light: rgb(80, 79, 79);
   --color-bg: #f9f9f9;
-  
+
   /* Spacing */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
@@ -32,7 +34,7 @@
   --spacing-lg: 30px;
   --spacing-xl: 50px;
   --spacing-2xl: 100px;
-  
+
   /* Font Sizes */
   --font-size-sm: 0.9rem;
   --font-size-base: 1rem;
@@ -43,31 +45,31 @@
   --font-size-3xl: 3rem;
   --font-size-4xl: 4rem;
   --font-size-5xl: 5rem;
-  
+
   /* Layout */
   --container-max-width: 1400px;
   --container-medium: 1200px;
   --container-small: 1000px;
   --nav-max-width: 1500px;
-  
+
   /* Border Radius */
   --radius-sm: 8px;
   --radius-md: 10px;
   --radius-lg: 12px;
   --radius-xl: 50px;
   --radius-full: 50%;
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 1s ease-in-out;
-  
+
   /* Shadows */
   --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 6px 18px rgba(0, 0, 0, 0.25);
   --shadow-xl: 0 10px 25px rgba(0, 0, 0, 0.3);
-  
+
   /* Other */
   --nav-height: 60px;
   --overlay-dark: rgba(0, 0, 0, 0.6);
@@ -219,8 +221,8 @@ a:hover {
   background: var(--overlay-dark);
 }
 
-.hero-section > *,
-.about-us-hero-section > * {
+.hero-section>*,
+.about-us-hero-section>* {
   position: relative;
   z-index: 1;
 }
@@ -668,81 +670,38 @@ a:hover {
 /* ========== Login Page ========== */
 .container-login {
   display: flex;
-  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  min-height: 80vh;
+  background: var(--overlay-dark);
+  color: white;
+}
+
+.login-box {
+  background: var(--overlay-darker);
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+}
+
+.login-input {
   width: 100%;
-  max-width: var(--container-small);
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.text-section-login {
-  max-width: 500px;
-  text-align: left;
-}
-
-.text-section-login h1 {
-  font-size: var(--font-size-3xl);
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.text-section-login p {
-  font-size: var(--font-size-md);
-  opacity: 0.9;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.card-login {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: var(--shadow-xl);
-  max-width: 350px;
-  width: 100%;
-  text-align: left;
-}
-
-.card-login label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.card-login input {
-  width: 100%;
-  padding: 0.7rem 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: var(--font-size-base);
-  outline: none;
-}
-
-.card-login input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-}
-
-.btn-login {
-  width: 100%;
-  padding: 0.8rem 0;
-  background: linear-gradient(to right, #3b82f6, #8b5cf6);
-  color: var(--color-white);
-  font-weight: 600;
+  padding: 12px;
   border: none;
-  border-radius: 0.5rem;
-  font-size: var(--font-size-base);
-  cursor: pointer;
-  transition: opacity var(--transition-normal);
+  border-radius: 8px;
+  margin: 10px 0;
 }
 
-.btn-login:hover {
-  opacity: 0.9;
+.login-button {
+  width: 100%;
+  background: #04bb2c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* ========== Contact Section ========== */
@@ -1163,6 +1122,7 @@ footer p {
 
 /* Small Desktop (max-width: 1400px) */
 @media (max-width: 1400px) {
+
   .container,
   .hero-section-container,
   .about-us-container {
