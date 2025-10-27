@@ -87,6 +87,13 @@
 
 html {
   scroll-behavior: smooth;
+  filter: grayscale(75%);
+}
+
+@media print {
+  html {
+    filter: none;
+  }
 }
 
 body {
