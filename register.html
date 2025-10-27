@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="th">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Dashboard - Modern Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Student Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -38,11 +41,11 @@
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 10px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     .header p {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 1.1rem;
     }
 
@@ -51,7 +54,7 @@
       background: white;
       border-radius: 20px;
       padding: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       margin-bottom: 30px;
       animation: fadeInUp 0.6s ease-out 0.1s both;
     }
@@ -82,7 +85,7 @@
     .search-input:focus {
       outline: none;
       border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
     .search-icon {
@@ -112,7 +115,7 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
     }
 
     .btn-secondary {
@@ -138,13 +141,13 @@
       background: white;
       border-radius: 16px;
       padding: 25px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       transition: all 0.3s;
     }
 
     .stat-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
     .stat-icon {
@@ -196,7 +199,7 @@
       background: white;
       border-radius: 20px;
       padding: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       animation: fadeInUp 0.6s ease-out 0.3s both;
     }
 
@@ -246,7 +249,7 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -271,7 +274,7 @@
     }
 
     .info-item {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       padding: 15px;
       border-radius: 12px;
       backdrop-filter: blur(10px);
@@ -411,6 +414,7 @@
         opacity: 0;
         transform: translateY(-20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -422,6 +426,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -429,13 +434,23 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     /* Responsive Design */
@@ -495,41 +510,38 @@
     }
 
     #logoutBtn {
-      position: fixed; 
-      top: 20px; 
-      right: 20px; 
-      background: #e53e3e; 
-      color: white; 
-      border: none; 
-      border-radius: 8px; 
-      padding: 10px 18px; 
-      font-weight: 600; 
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #e53e3e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       z-index: 999;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <h1>📚 ระบบจัดการข้อมูลนักศึกษา ชมรมคนรักกีฬา ปีที่ 8</h1>
+      <h1>ระบบจัดการข้อมูลนักศึกษา ชมรมคนรักกีฬา</h1>
       <p>ชมรมคนรักกีฬา USR ร่วมคิดสร้างสรรค์แบ่งปันความสุข ปีที่ 8</p>
     </div>
 
-     <button id="logoutBtn" >🚪 Logout</button>
+    <button id="logoutBtn">🚪 Logout</button>
 
     <!-- Search Section -->
     <div class="search-section">
       <div class="search-box">
         <div class="search-input-wrapper">
-          <input 
-            id="searchInput" 
-            type="text" 
-            class="search-input" 
-            placeholder="ค้นหาด้วยรหัสนักศึกษา, ชื่อ, เบอร์โทร หรือข้อมูลอื่นๆ..."
-          />
+          <input id="searchInput" type="text" class="search-input"
+            placeholder="ค้นหาด้วยรหัสนักศึกษา, ชื่อ, เบอร์โทร หรือข้อมูลอื่นๆ..." />
           <span class="search-icon">🔍</span>
         </div>
         <button id="refreshBtn" class="btn btn-primary">🔄 รีเฟรช</button>
@@ -640,7 +652,7 @@
         const result = [];
         let current = "";
         let inQuotes = false;
-        
+
         for (let i = 0; i < line.length; i++) {
           const char = line[i];
           if (char === '"') {
@@ -752,7 +764,7 @@
 
       detailHtml += '</div></div>';
       studentDetailContent.innerHTML = detailHtml;
-      
+
       // Show detail view, hide table
       studentDetail.classList.add('active');
       tableView.classList.add('hidden');
@@ -790,53 +802,67 @@
     function updateStats() {
       totalMembersEl.textContent = allData.length;
       searchResultsEl.textContent = filteredData.length;
-      
+
       // Find the column name for membership type (ประเภทสมาชิก)
-      const memberTypeColumn = headers.find(h => 
+      const memberTypeColumn = headers.find(h =>
         h.includes('ประเภทสมาชิก') || h.includes('ประเภท') || h.includes('membership')
       );
-      
+
       // Count "สมาชิกชมรม : 60 บาท"
       const clubOnlyCount = allData.filter(row => {
         const value = memberTypeColumn ? (row[memberTypeColumn] || "") : "";
-        return value.includes('สมาชิกชมรม : 60 บาท') || 
-               (value.includes('60') && value.includes('บาท') && !value.includes('360') && !value.includes('660'));
+        return value.includes('สมาชิกชมรม : 60 บาท') ||
+          (value.includes('60') && value.includes('บาท') && !value.includes('360') && !value.includes('660'));
       }).length;
       clubOnlyEl.textContent = clubOnlyCount;
-      
+
       // Count "สมาชิกชมรม + ไปค่าย (ชำระครึ่ง) : 360 บาท" and "สมาชิกชมรม + ไปค่าย (ชำระเต็ม) : 660 บาท"
       const clubWithCampCount = allData.filter(row => {
         const value = memberTypeColumn ? (row[memberTypeColumn] || "") : "";
         return value.includes('360 บาท') || value.includes('660 บาท') ||
-               value.includes('ไปค่าย') || value.includes('camp');
+          value.includes('ไปค่าย') || value.includes('camp');
       }).length;
       clubWithCampEl.textContent = clubWithCampCount;
-      
+
       // Calculate today's registrations (if timestamp column exists)
-      const today = new Date().toLocaleDateString('th-TH');
+      const today = new Date();
+      const todayDay = today.getDate();
+      const todayMonth = today.getMonth() + 1; // เดือนเริ่มจาก 0
+      const todayYear = today.getFullYear();   // ค.ศ.
+
       const todayCount = allData.filter(row => {
-        const timestamp = row['Timestamp'] || row['เวลา'] || "";
-        return timestamp.includes(today);
+        const timestamp = row['ประทับเวลา'];
+        if (!timestamp) return false;
+
+        // แยกวันที่จาก Sheet
+        const [datePart] = timestamp.split(","); // "27/10/2025"
+        const [day, month, year] = datePart.split("/").map(Number);
+
+        return day === todayDay && month === todayMonth && year === todayYear;
       }).length;
+
       todayRegistrationsEl.textContent = todayCount;
+
+
+
     }
 
     // Load and render data
     async function loadData() {
       try {
         lastUpdated.innerHTML = '<span>⏱️</span><span>กำลังโหลดข้อมูล...</span>';
-        
+
         const data = await fetchCsv(SHEET_CSV_URL);
         headers = data.headers;
         allData = data.rows;
-        
+
         // Apply current search filter
         const query = searchInput.value;
         filteredData = filterData(query);
-        
+
         renderTable(filteredData);
         updateStats();
-        
+
         const now = new Date();
         lastUpdated.innerHTML = `<span>✅</span><span>อัปเดตเมื่อ: ${now.toLocaleString('th-TH')}</span>`;
       } catch (error) {
@@ -867,8 +893,8 @@
 
     toggleAutoBtn.addEventListener('click', () => {
       autoRefresh = !autoRefresh;
-      toggleAutoBtn.innerHTML = autoRefresh 
-        ? '⏸️ หยุดอัปเดตอัตโนมัติ' 
+      toggleAutoBtn.innerHTML = autoRefresh
+        ? '⏸️ หยุดอัปเดตอัตโนมัติ'
         : '▶️ เริ่มอัปเดตอัตโนมัติ';
       toggleAutoBtn.className = autoRefresh ? 'btn btn-secondary' : 'btn btn-primary';
     });
@@ -899,7 +925,7 @@
     window.backToTable = backToTable;
     window.showStudentDetail = showStudentDetail;
 
-     // =============== 🔒 ป้องกันเข้าหน้าโดยตรงถ้าไม่ล็อกอิน ===============
+    // =============== 🔒 ป้องกันเข้าหน้าโดยตรงถ้าไม่ล็อกอิน ===============
     const isLoggedIn = localStorage.getItem("loggedIn");
 
     if (!isLoggedIn || isLoggedIn !== "true") {
@@ -918,4 +944,5 @@
     });
   </script>
 </body>
+
 </html>

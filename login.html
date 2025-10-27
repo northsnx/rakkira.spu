@@ -28,18 +28,24 @@
 
 
     <script>
-        function login() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+    // ตรวจสอบว่าล็อกอินแล้วหรือไม่
+    if (localStorage.getItem("loggedIn") === "true") {
+        window.location.href = "register.html";
+    }
 
-            if (user === "admin" && pass === "rakkira.spu") {
-                localStorage.setItem("loggedIn", "true");
-                window.location.href = "register.html";
-            } else {
-                alert("Error: Incorrect Username or Password");
-            }
+    function login() {
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
+
+        if (user === "admin" && pass === "rakkira.spu") {
+            localStorage.setItem("loggedIn", "true");
+            window.location.href = "register.html";
+        } else {
+            alert("Error: Incorrect Username or Password");
         }
-    </script>
+    }
+</script>
+
 </body>
 
 </html>

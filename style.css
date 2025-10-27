@@ -439,7 +439,7 @@ a:hover {
 
 /* ========== Committee Section ========== */
 .committee-content-section {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
 }
 
 .committee-content-section h1 {
@@ -493,30 +493,44 @@ a:hover {
   object-fit: contain;
 }
 
-/* Committee Buttons */
-.committee-btn,
-.committee-btn-active {
-  font-weight: bold;
-  font-size: var(--font-size-md);
-  cursor: pointer;
-  display: inline-block;
-  padding: var(--spacing-sm) 25px;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition-normal), transform var(--transition-fast);
+.committee-poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: var(--spacing-md);
 }
 
+.committee-poster-container img {
+  max-width: 90%;
+  height: auto;
+}
+
+/* Committee Buttons */
+.committee-btn {
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  display: inline-block;
+  padding: var(--spacing-xs) 25px;
+  border-radius: var(--radius-xl);
+  transition: background-color var(--transition-normal), transform var(--transition-fast);
+  margin-top: var(--spacing-md);
+  border: 1px solid var(--color-gray-light);
+  color: var(--color-gray-light);
+  background-color: var(--color-gray-lighter);
+}
+
+.committee-btn:hover {
+  background: #d0d0d0;
+}
+
 .committee-btn-active {
-  border: 2px solid var(--color-pink-active);
+  border: 1px solid var(--color-pink-active);
   color: var(--color-pink-active);
   background-color: var(--color-pink-bg);
 }
 
-.committee-btn {
-  border: 2px solid var(--color-gray-light);
-  color: var(--color-gray-light);
-  background-color: var(--color-gray-lighter);
-}
+
 
 /* ========== Announcement Cards ========== */
 .annount-card-grid,
@@ -673,9 +687,31 @@ a:hover {
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  background: var(--overlay-dark);
+  background-image: url("./public/assets/images/images-cover/AboutUsCover.jpg");
   color: white;
+  position: relative;
+  background-size: cover;
+  background-position: center;
 }
+
+.container-login::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-dark);
+  pointer-events: none;
+}
+
+.container-login::after {
+  z-index: 1;
+}
+
+.container-login>* {
+  position: relative;
+  z-index: 2;
+}
+
+
 
 .login-box {
   background: var(--overlay-darker);
@@ -861,6 +897,10 @@ footer .container {
 
 footer p {
   margin: 5px 0;
+}
+
+.protected-link {
+  display: none;
 }
 
 /* ========== Media Queries ========== */
@@ -1049,6 +1089,15 @@ footer p {
 
   .committee-card-grid-student img {
     width: 150px;
+  }
+
+  .committee-poster-container {
+    margin-top: var(--spacing-xs);
+  }
+
+  .committee-poster-container img {
+    max-width: 100%;
+    height: auto;
   }
 
   .committee-btn-active {
