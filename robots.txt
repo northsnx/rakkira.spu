@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://northsnx.github.io/rakkira.spu/sitemap.xml
