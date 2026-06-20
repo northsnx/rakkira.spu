@@ -27,7 +27,7 @@
 |-----------|-------|
 | 🎵 **Tiktok** | [@rakkira.spu](https://www.tiktok.com/@rakkira.spu) |
 | 📘 **Facebook** | [ชมรมคนรักกีฬา USR SPU](https://www.facebook.com/rakkira.spu) |
-| 🌎 **Website** | [rakkira.spu](https://northsnx.github.io/rakkira.spu) |
+| 🌎 **Website** | [rakkiraspu.vercel.app](https://rakkiraspu.vercel.app/) |
 
 ---
 

@@ -2,6 +2,20 @@
 <html lang="th">
 
 <head>
+    <!-- 🔄 Redirect to New Website -->
+    <meta http-equiv="refresh" content="0; url=https://rakkiraspu.vercel.app/about.html">
+    <script type="text/javascript">
+        var newBase = "https://rakkiraspu.vercel.app";
+        var path = window.location.pathname;
+        if (path.indexOf("/rakkira.spu") === 0) {
+            path = path.substring(12);
+        }
+        if (path === "" || path.charAt(0) !== '/') {
+            path = "/" + path;
+        }
+        window.location.replace(newBase + path + window.location.search + window.location.hash);
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เกี่ยวกับเรา | ชมรมคนรักกีฬา SPU</title>
